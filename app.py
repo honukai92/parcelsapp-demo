@@ -23,10 +23,11 @@ def home():
     op.add_argument('--disable-dev-sh-usage')
 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
-    #driver.get('https://parcelsapp.com/en/tracking/9400128206335591615282')
+    driver.get('https://parcelsapp.com/en/tracking/9400128206335591615282')
     #time.sleep(10)
-    driver.get('http://olympus.realpython.org/profiles/aphrodite')
-    tracking_number = driver.find_elements_by_tag_name('h2')[0].text
+    #driver.get('http://olympus.realpython.org/profiles/aphrodite')
+    tracking_number = driver.find_element_by_css_selector('#tracking-info > div:nth-child(1) > div.row.parcel > div.col-md-4.col-lg-4 > table > tbody > tr:nth-child(1) > td.value > span').text
+    #tracking_number = driver.find_elements_by_tag_name('h2')[0].text
     #driver.close()
     return tracking_number
 if __name__ == "__main__":
