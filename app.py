@@ -1,8 +1,8 @@
 import flask
 import os
 from flask import send_from_directory
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+#from selenium import webdriver
+#from selenium.webdriver.common.keys import Keys
 
 app = flask.Flask(__name__)
 
