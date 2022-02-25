@@ -25,10 +25,10 @@ def home():
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
     #driver.get('https://parcelsapp.com/en/tracking/9400128206335591615282')
     #time.sleep(10)
-    driver.get('https://www.youtube.com')
-    tracking_number = driver.find_element_by_css_selector('#endpoint > tp-yt-paper-item > yt-formatted-string')
+    driver.get('http://olympus.realpython.org/profiles/aphrodite')
+    tracking_number = driver.find_elements_by_tag_name('h2')[0].text
     #driver.close()
-    return tracking_number.text
+    return tracking_number
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
     app.debug = True
