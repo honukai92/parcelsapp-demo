@@ -25,7 +25,7 @@ def home():
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
     driver.get('https://parcelsapp.com/en/tracking/9400128206335591615282')
     #time.sleep(10)
-    tracking_number = driver.find_element_by_xpath('//*[@id="tracking-info"]/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/span')
+    tracking_number = driver.find_element_by_css_selector('body > header > div > div:nth-child(1) > div > h1')
     #driver.close()
     return tracking_number
 if __name__ == "__main__":
