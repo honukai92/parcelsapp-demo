@@ -1,1 +1,1 @@
-web: gunicorn parcelsapp-web-scraper:app --log-file -
+web: gunicorn app:app --log-file -
