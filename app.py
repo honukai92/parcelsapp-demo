@@ -23,12 +23,11 @@ def home():
     op.add_argument('--disable-dev-sh-usage')
 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
-    #driver.get('https://parcelsapp.com/en/tracking/9400128206335591615282')
+    driver.get('https://parcelsapp.com/en/tracking/9400128206335591615282')
     #time.sleep(10)
-    driver.get('https://www.youtube.com')
-    #tracking_number = driver.find_element_by_xpath('//*[@id="tracking-info"]/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/span')
+    tracking_number = driver.find_element_by_xpath('//*[@id="tracking-info"]/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/span')
     #driver.close()
-    return driver.page_source
+    return tracking_number
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
     app.debug = True
