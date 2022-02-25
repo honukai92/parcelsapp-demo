@@ -1,1 +1,1 @@
-web: gunicorn processWebhook:app --log-file -
+web: gunicorn parcelsapp-web-scraper:app --log-file -
