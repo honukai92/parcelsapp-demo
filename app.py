@@ -5,6 +5,10 @@ import time
 from flask import send_from_directory
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 
 app = flask.Flask(__name__)
 
@@ -23,13 +27,12 @@ def home():
     op.add_argument('--disable-dev-sh-usage')
 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
-    #driver.get('https://parcelsapp.com/en/tracking/9400128206335591615282')
+    driver.get('https://parcelsapp.com/en/tracking/9400128206335591615282')
     #time.sleep(10)
-    driver.get('http://olympus.realpython.org/profiles/aphrodite')
+
     #tracking_number = driver.find_element_by_css_selector('#tracking-info > div:nth-child(1) > div.row.parcel > div.col-md-4.col-lg-4 > table > tbody > tr:nth-child(1) > td.value > span').text
-    tracking_number = driver.find_element_by_css_selector('body > center > h2').text
-    #driver.close()
-    return tracking_number
+    tracking_number = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#tracking-info > div:nth-child(1) > div.row.parcel > div.col-md-4.col-lg-4 > table > tbody > tr:nth-child(1) > td.value > span')))
+    return tracking_number.text
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
     app.debug = True
