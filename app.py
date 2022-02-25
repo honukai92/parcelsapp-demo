@@ -20,7 +20,7 @@ def favicon():
 @app.route('/')
 @app.route('/home')
 def home():
-    delay = 30
+    delay = 15
     op = webdriver.ChromeOptions()
     op.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
     op.add_argument('--headless')
