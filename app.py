@@ -1,6 +1,7 @@
 import flask
 import os
 import selenium
+import time
 from flask import send_from_directory
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -23,6 +24,7 @@ def home():
 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
     driver.get('https://parcelsapp.com/en/tracking/9400128206335591615282')
+    time.sleep(10)
     tracking_number = driver.find_element_by_xpath('//*[@id="tracking-info"]/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[2]/span')
     driver.close()
     return tracking_number
