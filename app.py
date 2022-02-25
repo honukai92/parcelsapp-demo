@@ -31,7 +31,7 @@ def home():
     #time.sleep(10)
 
     #tracking_number = driver.find_element_by_css_selector('#tracking-info > div:nth-child(1) > div.row.parcel > div.col-md-4.col-lg-4 > table > tbody > tr:nth-child(1) > td.value > span').text
-    tracking_number = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#tracking-info > div:nth-child(1) > div.row.parcel > div.col-md-4.col-lg-4 > table > tbody > tr:nth-child(1) > td.value > span')))
+    tracking_number = WebDriverWait(driver, 25).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#tracking-info > div:nth-child(1) > div.row.parcel > div.col-md-4.col-lg-4 > table > tbody > tr:nth-child(1) > td.value > span')))
     return tracking_number.text
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
