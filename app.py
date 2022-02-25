@@ -28,7 +28,7 @@ def home():
     driver.get('https://www.youtube.com')
     tracking_number = driver.find_element_by_css_selector('#endpoint > tp-yt-paper-item > yt-formatted-string')
     #driver.close()
-    return tracking_number
+    return tracking_number.text
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
     app.debug = True
